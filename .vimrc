@@ -5,8 +5,15 @@ set title
 execute pathogen#infect()
 
 syntax on
-set background=dark
-colorscheme tomorrow-night
+
+let iterm_profile = $ITERM_PROFILE
+if iterm_profile == "Daytime"
+  set background=light
+  colorscheme gruvbox
+else
+  set background=dark
+  colorscheme tomorrow-night
+endif
 hi TabLineFill term=bold cterm=bold ctermbg=0
 
 filetype on
@@ -32,9 +39,7 @@ set tabstop=2
 set shiftwidth=2
 set softtabstop=2
 
-highlight ExtraWhitespaces ctermbg=52 ctermfg=white guibg=#592929
-highlight OverLength ctermbg=52 ctermfg=white guibg=#592929
-call matchadd('OverLength', '\%101v.')
+highlight ExtraWhitespaces cterm=underline
 call matchadd('ExtraWhitespaces', '\s\+$')
 
 "Remap for navigating splits
