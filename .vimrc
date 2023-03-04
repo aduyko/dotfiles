@@ -14,7 +14,8 @@ else
   set background=dark
   colorscheme tomorrow-night
 endif
-hi TabLineFill term=bold cterm=bold ctermbg=0
+"hi TabLineFill term=bold cterm=bold ctermbg=6
+"hi StatusLine term=bold cterm=bold ctermbg=6
 
 filetype on
 filetype plugin on
@@ -64,3 +65,6 @@ autocmd BufNewFile,BufReadPost *.md set ft=markdown
 "Custom log syntax
 au BufNewFile,BufRead *.mylog set ft=mylog
 autocmd BufEnter *.mylog set foldmethod=syntax
+
+"markdown fold top
+autocmd FileType markdown set foldexpr=NestedMarkdownFolds()

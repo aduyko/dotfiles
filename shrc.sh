@@ -1,6 +1,7 @@
 alias daily='vim +3 "+normal O" ~/notes/daily.mylog'
 alias newdaily="vim -c \"pu=strftime('[%m-%d-%Y]')\" ~/notes/daily.mylog"
-alias notes='vim ~/notes/notes.md'
+alias notes='vim ~/notes/notes.mylog'
+alias todo='vim ~/notes/personal/todo.mylog'
 
 #Add colors for filetype and  human-readable sizes by default on 'ls':
 alias ls='ls -FGh'
@@ -22,9 +23,10 @@ alias gbc="git rev-parse --abbrev-ref HEAD" #show current branch
 alias gbcp="git rev-parse --abbrev-ref HEAD | tr -d '\n' | pbcopy; pbpaste" #copy current branch to clipboard
 alias gbf="git branch | grep " #find local branch with arg name
 alias gbfr="git branch -r | sed 's/origin\///' | grep " #find all branches with arg name, strip "origin" from result
+alias tf="terraform"
 
 # Directories
-alias work="cd ~/Work"
+alias work="cd ~/workspace"
 
 # functions
 grepless() {
@@ -40,7 +42,3 @@ gstsd() {
   git stash show -p $1
 }
 
-function custom_title {
-    export DISABLE_AUTO_TITLE="true"
-    echo -ne "\033]0;"$*"\007"
-}
